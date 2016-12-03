@@ -1,5 +1,6 @@
 import React, {Component, propTypes} from "react";
 import GraphNum from "./GraphNum";
+import MyNum from "./MyNum";
 import VarChooser from "./VarChooser";
 import FormGroup from 'react-bootstrap';
 import ControlLabel from 'react-bootstrap';
@@ -18,6 +19,8 @@ export default class BackpackGraphSelect extends Component {
                     selectedEndTime: new Date().getTime().toString() };
       //for any call-back func, bind this
       this.graphNumChanged = this.graphNumChanged.bind(this);
+      this.MyNumChanged = this.MyNumChanged.bind(this);
+
       this.selectedVarChanged = this.selectedVarChanged.bind(this);
       
       this.variables = ["CH4","CO2","H2O"];
@@ -70,6 +73,9 @@ export default class BackpackGraphSelect extends Component {
       return (<div>
         <GraphNum nGraphs= {this.state.nGraphs} userInput = {this.graphNumChanged} />
         <p>Value is {this.state.nGraphs}</p>
+        <MyNum myN= {this.state.myN} userInput = {this.MyNumChanged} />
+        <p>My number is {this.state.myN}</p>
+        
         {choosers}
         {showChoosersVar}
         <IntervalChooser 
@@ -98,6 +104,10 @@ export default class BackpackGraphSelect extends Component {
     
     graphNumChanged(x){
       this.setState({nGraphs: x})
+    }
+
+    MyNumChanged(x){
+      this.setState({myN: x})
     }
     
 }

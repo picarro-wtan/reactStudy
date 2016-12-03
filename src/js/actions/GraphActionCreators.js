@@ -7,6 +7,12 @@ let GraphActionCreators = {
            type: constants.SET_NUM_GRAPHS,
            payload: {args} 
         });
+    },
+    setMyNum(...args){
+        dispatcher.dispatch({
+           type: constants.SET_MY_NUM,
+           payload: {args} 
+        });
     }
 };
 
