@@ -13,7 +13,7 @@ if hasattr(sys, "frozen"): #we're running compiled with py2exe
     AppPath = sys.executable
 else:
     AppPath = sys.argv[0]
-APP_NAME = "BackpackServer"
+APP_NAME = "flaskServer"
 if "backpackServer.py" in sys.argv[0]:
     app = Flask(__name__, static_url_path='', static_folder='../../../../js/backpack/src/')
 else:   # running executable
